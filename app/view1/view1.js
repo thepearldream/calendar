@@ -11,11 +11,11 @@ angular.module('myApp.view1', ['facebookUtils', 'ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
     templateUrl: 'view1/view1.html',
-    controller: 'CalendarCtrl'
+    controller: 'FacebookLoginCtrl'
   });
 }])
 
-.controller('CalendarCtrl', function($rootScope, $scope, facebookUser) {
+.controller('FacebookLoginCtrl', function($rootScope, $scope, facebookUser) {
   $rootScope.loggedInUser = {};
 
     $rootScope.$on('fbLoginSuccess', function(name, response) {
