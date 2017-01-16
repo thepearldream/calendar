@@ -11,6 +11,7 @@ angular.module('myApp.view2', ['mwl.calendar', 'ui.bootstrap','ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', [function() {
-
-}]);
+.controller('View2Ctrl', function($scope) {
+  $scope.calendarView = 'month';
+  $scope.viewDate = new Date();
+});
