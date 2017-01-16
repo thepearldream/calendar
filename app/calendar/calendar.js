@@ -1,19 +1,42 @@
 'use strict';
 
-angular.module('myApp.view2', ['mwl.calendar', 'ui.bootstrap','ngRoute'])
+angular.module('myApp.calendar', ['angularModalService', 'mwl.calendar', 'ui.bootstrap','ngRoute'])
 // angular.module('myApp.view2', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view2', {
-    templateUrl: 'view2/view2.html',
+  $routeProvider.when('/calendar', {
+    templateUrl: 'calendar/calendar.html',
     controller: 'CalendarCtrl',
     needAuth: true
   });
 }])
 
-.controller('CalendarCtrl', function(moment, calendarConfig, $scope) {
+.controller('CalendarCtrl', function(moment, calendarConfig, $scope, calendarTitle, ModalService) {
 
     var vm = $scope;
+
+    vm.showAModal = function() {
+
+      // Just provide a template url, a controller and call 'showModal'.
+      ModalService.showModal({
+        templateUrl: "calendar/addEventModal.html",
+        controller: "AddEventController",
+        inputs: {
+          title: "Add Event"
+        }
+      }).then(function(modal) {
+        // The modal object has the element built, if this is a bootstrap modal
+        // you can call 'modal' to show it, if it's a custom modal just show or hide
+        // it as you need to.
+        modal.element.modal();
+        modal.close.then(function(result) {
+          $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+        });
+      });
+
+    };
+
+    vm.calendarTitle = calendarTitle
 
     //These variables MUST be set as a minimum for the calendar to work
     vm.calendarView = 'month';

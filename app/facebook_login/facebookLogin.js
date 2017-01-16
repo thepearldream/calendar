@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['facebookUtils', 'ngRoute'])
+angular.module('myApp.facebookLogin', ['facebookUtils', 'ngRoute'])
 
 .constant('facebookConfigSettings', {
     'routingEnabled' : true,
@@ -9,8 +9,8 @@ angular.module('myApp.view1', ['facebookUtils', 'ngRoute'])
   })
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
+  $routeProvider.when('/login', {
+    templateUrl: 'facebook_login/facebookLogin.html',
     controller: 'FacebookLoginCtrl'
   });
 }])
