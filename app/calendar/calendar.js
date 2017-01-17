@@ -10,7 +10,7 @@ angular.module('myApp.calendar', ['lr.upload', 'angularModalService', 'mwl.calen
   });
 }])
 
-.controller('CalendarCtrl', function(moment, calendarConfig, $scope, calendarTitle, ModalService) {
+.controller('CalendarCtrl', function(moment, calendarConfig, $scope, calendarTitle, ModalService, upload) {
 
     var vm = $scope;
 
@@ -30,6 +30,23 @@ angular.module('myApp.calendar', ['lr.upload', 'angularModalService', 'mwl.calen
         modal.element.modal();
         modal.close.then(function(result) {
           // console.log(result);
+          upload({
+            url: '/upload',
+            method: 'POST',
+            data: {
+              // anint: 123,
+              // aBlob: Blob([1,2,3]), // Only works in newer browsers
+              aFile: $scope.file, // a jqLite type="file" element, upload() will extract all the files from the input and put them into the FormData object before sending.
+            }
+          }).then(
+            function (response) {
+              console.log(response.data); // will output whatever you choose to return from the server on a successful upload
+            },
+            function (response) {
+              console.error(response); //  Will return if status code is above 200 and lower than 300, same as $http
+            }
+          );
+
           vm.events.push({
             title: result.name + " - " + result.where,
             startsAt: new Date(result.start_at_day), // TODO: Get date and time

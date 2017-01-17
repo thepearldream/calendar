@@ -5,24 +5,24 @@ var app = angular.module('myApp.calendar');
 app.controller('AddEventController', [
   '$scope', '$element', 'title', 'close', 'moment', 'upload',
   function($scope, $element, title, close, moment, upload) {
-    $scope.doUpload = function () {
-      upload({
-        url: '/upload',
-        method: 'POST',
-        data: {
-          anint: 123,
-          aBlob: Blob([1,2,3]), // Only works in newer browsers
-          aFile: $scope.myFile, // a jqLite type="file" element, upload() will extract all the files from the input and put them into the FormData object before sending.
-        }
-      }).then(
-        function (response) {
-          console.log(response.data); // will output whatever you choose to return from the server on a successful upload
-        },
-        function (response) {
-          console.error(response); //  Will return if status code is above 200 and lower than 300, same as $http
-        }
-      );
-    };
+    // $scope.doUpload = function () {
+    //   upload({
+    //     url: '/upload',
+    //     method: 'POST',
+    //     data: {
+    //       // anint: 123,
+    //       // aBlob: Blob([1,2,3]), // Only works in newer browsers
+    //       aFile: $scope.file, // a jqLite type="file" element, upload() will extract all the files from the input and put them into the FormData object before sending.
+    //     }
+    //   }).then(
+    //     function (response) {
+    //       console.log(response.data); // will output whatever you choose to return from the server on a successful upload
+    //     },
+    //     function (response) {
+    //       console.error(response); //  Will return if status code is above 200 and lower than 300, same as $http
+    //     }
+    //   );
+    // };
 
     $scope.name = null;
     $scope.where = null;
@@ -42,6 +42,7 @@ app.controller('AddEventController', [
         start_at_time: $scope.start_at_time,
         end_at_day: $scope.end_at_day,
         end_at_time: $scope.end_at_time,
+        file: $scope.file
       }, 500); // close, but give 500ms for bootstrap to animate
     };
 
@@ -60,6 +61,7 @@ app.controller('AddEventController', [
       start_at_time: $scope.start_at_time,
       end_at_day: $scope.end_at_day,
       end_at_time: $scope.end_at_time,
+      file: $scope.file
     }, 500); // close, but give 500ms for bootstrap to animate
   };
 
