@@ -30,7 +30,15 @@ angular.module('myApp.calendar', ['angularModalService', 'mwl.calendar', 'ui.boo
         // it as you need to.
         modal.element.modal();
         modal.close.then(function(result) {
-          $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+          // console.log(result);
+          vm.events.push({
+            title: result.name + " - " + result.where,
+            startsAt: new Date(result.start_at_day), // TODO: Get date and time
+            endsAt: new Date(result.end_at_day),
+            color: calendarConfig.colorTypes.important,
+            draggable: true,
+            resizable: true
+          });
         });
       });
 

@@ -8,6 +8,7 @@ angular.module('myApp.facebookLogin', ['facebookUtils', 'ngRoute'])
     'appID'          : '178504295959533'
   })
 
+// TODO: Redirect to calendar after login
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/login', {
     templateUrl: 'facebook_login/facebookLogin.html',
