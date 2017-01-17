@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('myApp.calendar', ['angularModalService', 'mwl.calendar', 'ui.bootstrap','ngRoute'])
-// angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.calendar', ['lr.upload', 'angularModalService', 'mwl.calendar', 'ui.bootstrap','ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/calendar', {
