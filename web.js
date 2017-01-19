@@ -1,6 +1,6 @@
 'use strict';
 
-var gzippo = require('gzippo');
+// var gzippo = require('gzippo'); // TODO: Reactivate this for better performance - right now crashing app - TypeError: staticSend is not a function
 var express = require('express');
 var nodeApp = express();
 
