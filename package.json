@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "bower": "1.7.7"
+    "express": "~4.1.1",
+    "gzippo": "^0.1.7"
   },
   "devDependencies": {
     "bower": "^1.7.7",
