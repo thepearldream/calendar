@@ -16,6 +16,7 @@
     "angular-bootstrap": "^2.4.0",
     "moment": "^2.17.1",
     "angular-modal-service": "^0.10.1",
-    "angular-upload": "^1.0.12"
+    "angular-upload": "^1.0.12",
+    "angularFacebookUtils": "angular-facebook-utils#^1.1.0"
   }
 }
