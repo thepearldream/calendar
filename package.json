@@ -6,7 +6,8 @@
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "engines": {
-    "node": "5.3.0"
+    "node": "5.3.0",
+    "npm": "3.8.6"
   },
   "dependencies": {
     "bower": "1.7.7"
