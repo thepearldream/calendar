@@ -6,5 +6,5 @@ var nodeApp = express();
 
 nodeApp.use(express.logger('dev'));
 // nodeApp.use(gzippo.staticGzip('' + __dirname + '/app'));
-nodeApp.use(express.static(__dirname+'/path'));
+nodeApp.use(express.static(__dirname+'/app'));
 nodeApp.listen(process.env.PORT || 5000);
